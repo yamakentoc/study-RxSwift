@@ -12,6 +12,7 @@
 		15226E37209B20D0001B5C90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15226E35209B20D0001B5C90 /* Main.storyboard */; };
 		15226E39209B20D1001B5C90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15226E38209B20D1001B5C90 /* Assets.xcassets */; };
 		15226E3C209B20D1001B5C90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15226E3A209B20D1001B5C90 /* LaunchScreen.storyboard */; };
+		73C9D15DA117756A4C255C36 /* Pods_simpleRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5EEDD22383F754AD952AB0 /* Pods_simpleRxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		15226E38209B20D1001B5C90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15226E3B209B20D1001B5C90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15226E3D209B20D1001B5C90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4272AC69DA012BEE339AA1E2 /* Pods-simpleRxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simpleRxSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-simpleRxSwift/Pods-simpleRxSwift.release.xcconfig"; sourceTree = "<group>"; };
+		6D5EEDD22383F754AD952AB0 /* Pods_simpleRxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_simpleRxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		976F29E901CA186A5E77D189 /* Pods-simpleRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simpleRxSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-simpleRxSwift/Pods-simpleRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73C9D15DA117756A4C255C36 /* Pods_simpleRxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				15226E30209B20D0001B5C90 /* simpleRxSwift */,
 				15226E2F209B20D0001B5C90 /* Products */,
+				B6BF0BB87F76AE668CD34EB6 /* Pods */,
+				22890E0DECC316517ADEB55A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = simpleRxSwift;
 			sourceTree = "<group>";
 		};
+		22890E0DECC316517ADEB55A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D5EEDD22383F754AD952AB0 /* Pods_simpleRxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6BF0BB87F76AE668CD34EB6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				976F29E901CA186A5E77D189 /* Pods-simpleRxSwift.debug.xcconfig */,
+				4272AC69DA012BEE339AA1E2 /* Pods-simpleRxSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15226E40209B20D1001B5C90 /* Build configuration list for PBXNativeTarget "simpleRxSwift" */;
 			buildPhases = (
+				07C4FE45A1FFDE524F4A7253 /* [CP] Check Pods Manifest.lock */,
 				15226E2A209B20D0001B5C90 /* Sources */,
 				15226E2B209B20D0001B5C90 /* Frameworks */,
 				15226E2C209B20D0001B5C90 /* Resources */,
+				6D4557246C7FE61E9A04174C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07C4FE45A1FFDE524F4A7253 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-simpleRxSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D4557246C7FE61E9A04174C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-simpleRxSwift/Pods-simpleRxSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-simpleRxSwift/Pods-simpleRxSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		15226E2A209B20D0001B5C90 /* Sources */ = {
@@ -278,15 +345,13 @@
 		};
 		15226E41209B20D1001B5C90 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 976F29E901CA186A5E77D189 /* Pods-simpleRxSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65VW7XZNV5;
 				INFOPLIST_FILE = simpleRxSwift/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yamakentoc.simpleRxSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -296,15 +361,13 @@
 		};
 		15226E42209B20D1001B5C90 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4272AC69DA012BEE339AA1E2 /* Pods-simpleRxSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65VW7XZNV5;
 				INFOPLIST_FILE = simpleRxSwift/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yamakentoc.simpleRxSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
