@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let projectName = ["AddingNumbers"]
+    let projectName = ["AddingNumbers", "SimpleValidation"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         switch indexPath.row + 1 {
         case 1:
             vc = UIStoryboard(name: "AddingNumbers", bundle: nil).instantiateInitialViewController()!
+        case 2:
+            vc = UIStoryboard(name: "SimpleValidation", bundle: nil).instantiateInitialViewController()!
         default:
             break
         }
