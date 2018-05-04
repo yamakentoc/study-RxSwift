@@ -69,20 +69,20 @@
 				15F93178209C351000FC553C /* ViewController.swift */,
 				15F9317A209C351000FC553C /* Main.storyboard */,
 				15F9317D209C351100FC553C /* Assets.xcassets */,
-				15F9318D209C387B00FC553C /* New Group */,
+				15F9318D209C387B00FC553C /* AddingNumbers */,
 				15F9317F209C351100FC553C /* LaunchScreen.storyboard */,
 				15F93182209C351100FC553C /* Info.plist */,
 			);
 			path = officialSampleTranscription;
 			sourceTree = "<group>";
 		};
-		15F9318D209C387B00FC553C /* New Group */ = {
+		15F9318D209C387B00FC553C /* AddingNumbers */ = {
 			isa = PBXGroup;
 			children = (
 				15F9318E209C38B600FC553C /* AddingNumbersViewController.swift */,
 				15F93190209C38DB00FC553C /* AddingNumbers.storyboard */,
 			);
-			path = "New Group";
+			path = AddingNumbers;
 			sourceTree = "<group>";
 		};
 		362E0043F7CAEC23A8E1E5B8 /* Frameworks */ = {
@@ -367,7 +367,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65VW7XZNV5;
 				INFOPLIST_FILE = officialSampleTranscription/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = yamakentoc.officialSampleTranscription;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -383,7 +386,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65VW7XZNV5;
 				INFOPLIST_FILE = officialSampleTranscription/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = yamakentoc.officialSampleTranscription;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
