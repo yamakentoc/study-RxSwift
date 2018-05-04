@@ -9,17 +9,38 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let projectName = ["AddingNumbers"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
+    
 }
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return projectName.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = projectName[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var vc = UIViewController()
+        switch indexPath.row + 1 {
+        case 1:
+            vc = UIStoryboard(name: "AddingNumbers", bundle: nil).instantiateInitialViewController()!
+        default:
+            break
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
