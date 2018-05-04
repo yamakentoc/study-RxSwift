@@ -82,6 +82,12 @@
                         <viewLayoutGuide key="safeArea" id="VUb-ZB-0fY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Adding Numbers" id="Tsy-Dd-UjJ"/>
+                    <connections>
+                        <outlet property="number1TextField" destination="cZL-Jp-Ifb" id="KFK-5d-xbt"/>
+                        <outlet property="number2TextField" destination="pKn-lw-l6f" id="1b1-SJ-Vup"/>
+                        <outlet property="number3TextField" destination="U6L-KX-mtp" id="RDA-RT-XtY"/>
+                        <outlet property="resultLabel" destination="PXw-nf-OSc" id="qsC-Un-3vQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaF-gf-6D1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
