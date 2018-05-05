@@ -28,16 +28,29 @@ class ViewController: UIViewController {
 
 class Hoge {
     var event: Observable<Int>?
+    ///Subjectでイベントを発生させる。
+    ///1番基本的なSubjectがPublishSubject
+    private let eventSubject = PublishSubject<Int>()
+    var event2: Observable<Int> { return eventSubject }
+    
+    func doSomething() {
+        eventSubject.onNext(1)
+    }
     
 }
 
+
 let hoge = Hoge()
-let disposable = hoge.event?.subscribe(
+let disposeBag = DisposeBag()
+///Observableでイベントを受け取る
+let disposable = hoge.event?.subscribe(//購読開始
     onNext: {value in
-        print("hiya")
-},
-    onError: {error in
-        print("error")
-}, onCompleted: {
-    
-})
+    //通常イベント発生時の処理
+    },onError: {error in
+    print("error")//エラー発生時の処理
+    }, onCompleted: {
+    //完了時の処理
+    })
+    .disposed(by: disposeBag)//購読完了
+
+
