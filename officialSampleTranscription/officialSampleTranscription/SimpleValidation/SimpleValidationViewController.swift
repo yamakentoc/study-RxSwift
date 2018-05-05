@@ -62,9 +62,7 @@ class SimpleValidationViewController: UIViewController {
                 
             })
             .disposed(by: disposeBag)
-        
-        
-        
+
     }
 
     func showAlert() {

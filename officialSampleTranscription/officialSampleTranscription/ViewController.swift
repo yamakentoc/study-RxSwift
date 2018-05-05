@@ -46,3 +46,23 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+
+import RxSwift
+import RxCocoa
+
+class Hoge {
+    var event: Observable<Int>?
+
+}
+
+let hoge = Hoge()
+let disposable = hoge.event?.subscribe(
+    onNext: {value in
+        print("hiya")
+},
+    onError: {error in
+        print("error")
+}, onCompleted: {
+    
+})
