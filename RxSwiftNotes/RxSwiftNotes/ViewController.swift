@@ -182,6 +182,48 @@ var errorEvent: Observable<Error> {
 //これ合ってるのか微妙
 
 
+///combineLatest
+///直近の最新地同士を組み合わせたイベントを作る
+///例えば現在地を通知するLocationMonitorクラスに現在地の緯度軽度を表すlocationプロパティがあるとするLatLonは緯度経度を表すクラス
+///２つの Observable を combineLatest で合成しています。どちらかの Observable に変化があると、その変化値ともう一方の直近の値がクロージャに渡され、クロージャの戻り値がイベントとして流れる
+class LocationMonitor {
+    var location: Observable<LatLon> {
+        return locationVar.asObservable()
+    }
+}
+
+class Route {
+    var goal: Observable<LatLon> {
+        return goal.asObservable()
+    }
+}
+
+var distance: Observable<Double> {
+    return Observable.combineLatest(LocationMonitor.location, Route.goal) { location, goal in
+        goal.distanceFrom(location)
+    }
+}
+
+
+///sample
+///Observableの値を発行するタイミングを、もう一方のObservableをトリガーにして決める場合に使う。
+///例えば画面上にある部品が、押すと移動できるようになっているとする。移動中はpositionプロパティが位置を通知してくれるけど、指を話して位置が確定した時だけ教えてくれれば良い。
+///sample の引数に渡すトリガーとして、pressed が false になったとき（指を離した時）を指定
+///トリガー発生時に必ず値を通知して欲しい用途では使えない
+element.position
+    .sample(element.pressed.filter{ !$0 })//
+    .subscribe(onNext: { position in
+        //指を話して位置が決定した時に行う処理
+    })
+    .disposed(by: disposeBag)
+
+
+
+
+
+
+
+
 
 
 
