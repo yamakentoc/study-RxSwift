@@ -219,10 +219,31 @@ element.position
 
 
 
+///withLatestFrom
+///あるObservableにもう一方のObservableの最新地を合成する
+///ccombineLatestと違って、イベントの発行タイミングは最初のObservableの発行タイミングと同じ。
+///単にそこにもう一方の最新値を組みああせるだけ。
+///トリガーになるイベントのあたいも利用できて、値に変化がなくてもトリガー発生時に値を通知してくれるsampleの拡張版とも捉えれる
+///例えばエラー発生時に発生したエラーとエラー発生時の現在地の緯度経度から、新たなエラーを生成して通知するObservableを作る
+class Hoge3 {
+    var errorEvent: Error!
+}
+let hoge3 = Hoge3()
+var errorEvent2: Observable<Error> {
+    return hoge3.errorEvent.withLatestFrom(LocationMonitor.location) { error, ocation in
+       MyError.hogeError(error, location)
+    }
+}
 
-
-
-
+//元のObservableのイベントを利用しないなら第二引数のクロージャは省略できる
+//sampleだと値変化がないと通知してくれない困る！って時はこっちを使う
+element.pressed
+    .filter{ !$0 }
+    .withLatestFrom(element.position)
+    .subscribe(onNext: { position in
+        //指を話して位置が決定した時に行う処理
+    })
+    .disposed(by: disposeBage)
 
 
 
