@@ -65,7 +65,7 @@ let disposable2 = presenter.buttonHidden.subscribe(onNext: {[button] in
 ///BehaviorSubjectと違ってonError / onCompleted を明示的に発生させることはできないため、現在値取得で例外が発生することはない。
 ///bindTo   メソッドの引数に指定できるというメリットもある
 class Presenter2 {
-    private let buttonHiddenVar = Variable(false)
+    private let buttonHiddenVar = Variable(false)//viewModel側
     var buttonHidden: Observable<Bool> { return buttonHiddenVar.asObservable() }
     
     func start() {
@@ -94,7 +94,7 @@ class Config {
 
 
 ///bindToを使うとsubscribeを使うより簡単にイベントをプロパティに接続できる
-let presenter2 = Presenter2()
+let presenter2 = Presenter2()//view側
 
 let disposable3 = presenter2.buttonHidden.subscribe(onNext: {[button] in
     button.isHidden = $0
