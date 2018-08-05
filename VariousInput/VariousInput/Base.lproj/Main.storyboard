@@ -104,6 +104,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="freeTextField" destination="Ob0-Er-BUR" id="OFS-9S-PF5"/>
+                        <outlet property="greetingLabel" destination="ta3-Fp-Ptj" id="LRI-xG-5Hd"/>
+                        <outlet property="nameTextField" destination="GIw-pW-KUh" id="Bh4-Fb-pCP"/>
+                        <outlet property="stateSegmentedControl" destination="8E9-5E-tkb" id="Mfg-w7-wd4"/>
+                        <outletCollection property="greetingButtons" destination="eiR-CW-B4J" collectionClass="NSMutableArray" id="toN-uC-2Q4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
