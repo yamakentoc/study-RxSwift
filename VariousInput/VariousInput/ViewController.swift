@@ -72,7 +72,28 @@ class ViewController: UIViewController {
         greetingTextFieldEnabledObservable
             .bind(to: freeTextField.rx.isEnabled)
             .disposed(by: disposeBag)
-                
+        
+        //テキストフィールドが編集を受け付ける状態かを検知して、ボタン部分が選択可能かを返す
+        //map BoolからBoolへ変換
+        let buttonsEnabledObservable: Observable<Bool> = greetingTextFieldEnabledObservable.map {
+            (greetingEnabled: Bool) -> Bool in
+            return !greetingEnabled
+        }
+        
+        //greetingButtonに関する処理
+        greetingButtons.forEach { button in
+            buttonsEnabledObservable
+                .bind(to: button.rx.isEnabled)
+                .disposed(by: disposeBag)
+            
+        //lastSelectedGreetingにボタンのタイトル名を返す
+            button.rx.tap.subscribe(onNext: { (nothing: Void) in
+                self.lastSelectedGreeting.value = button.currentTitle!
+            }).disposed(by: disposeBag)
+            
+            
+        }
+        
         
     }
 }
